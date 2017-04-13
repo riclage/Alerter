@@ -178,7 +178,7 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     @Override
     public void onAnimationEnd(final Animation animation) {
         //Start the Icon Animation once the Alert is settled
-        if (enableIconPulse && showIcon) {
+        if (enableIconPulse && ivIcon.getVisibility() == VISIBLE) {
             try {
                 ivIcon.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.alerter_pulse));
             } catch (Exception ex) {
@@ -349,7 +349,6 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
      * @param showIcon True to show the icon, false otherwise
      */
     public void showIcon(final boolean showIcon) {
-        this.showIcon = showIcon;
         ivIcon.setVisibility(showIcon ? View.VISIBLE : View.GONE);
     }
 
